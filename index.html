@@ -1,1 +1,67 @@
-
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳禹茹的個人履歷</title>
+    <style>
+        body { font-family: "Noto Sans TC", sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; line-height: 1.6; }
+        header { background-color: #4a90e2; color: white; padding: 40px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 2.5em; }
+        main { max-width: 800px; margin: 20px auto; padding: 20px; }
+        section { background: white; padding: 25px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { color: #4a90e2; border-bottom: 2px solid #4a90e2; padding-bottom: 10px; margin-top: 0; }
+        ul { list-style: none; padding: 0; }
+        li { padding: 8px 0; border-bottom: 1px dotted #eee; }
+        li:last-child { border-bottom: none; }
+        button { background: #4a90e2; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #357abd; }
+        #moreInfo { display: none; margin-top: 15px; padding: 10px; background: #eef6ff; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>陳禹茹</h1>
+        <p>亞洲大學 語言治療學系 | 學號: AU114018083</p>
+        <p>📧 example@email.com | 📞 0912-345-678</p>
+    </header>
+    <main>
+        <section>
+            <h2>自我介紹</h2>
+            <p>您好，我是亞洲大學語聽系的陳禹茹。我具備良好的溝通能力與團隊合作精神，樂於挑戰新事物。</p>
+            <button onclick="toggleMoreInfo()">點我看更多細節</button>
+            <div id="moreInfo">
+                <p>我曾參與多場大型活動的工作經驗（如洲際棒球場、玉珍齋），負責觀眾引導、顧客服務與現場應變，具備細心與耐心的特質。</p>
+            </div>
+        </section>
+        <section>
+            <h2>教育背景</h2>
+            <ul>
+                <li><strong>2023 - 現在：</strong> 亞洲大學 語言治療學系</li>
+                <li><strong>2019 - 2022：</strong> 彰化高中 普通科</li>
+            </ul>
+        </section>
+        <section>
+            <h2>工作與活動經驗</h2>
+            <ul>
+                <li><strong>洲際棒球場：</strong> 觀眾引導、座位指引、秩序維護</li>
+                <li><strong>玉珍齋：</strong> 顧客服務、裁票、活動協助</li>
+            </ul>
+        </section>
+        <section>
+            <h2>核心技能</h2>
+            <ul>
+                <li>✅ 語言能力：中文（母語）、英文（中等）</li>
+                <li>✅ 專業技能：HTML/CSS 基礎、團隊組織</li>
+                <li>✅ 個人特質：溝通協調、危機處理</li>
+            </ul>
+        </section>
+    </main>
+    <script>
+        function toggleMoreInfo() {
+            const info = document.getElementById('moreInfo');
+            info.style.display = (info.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
