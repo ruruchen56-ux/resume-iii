@@ -6,8 +6,40 @@
     <title>陳禹茹的個人履歷</title>
     <style>
         body { font-family: "Noto Sans TC", sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; line-height: 1.6; }
-        header { background-color: #4a90e2; color: white; padding: 40px 20px; text-align: center; }
+        
+        /* 頁首樣式 - 加入 Flexbox 讓圖片和文字並排 */
+        header { 
+            background-color: #4a90e2; 
+            color: white; 
+            padding: 40px 20px; 
+            display: flex;
+            flex-direction: column; /* 手機版垂直排列 */
+            align-items: center; 
+            text-align: center;
+            gap: 20px;
+        }
+
+        /* 大頭照樣式 - 圓形、陰影、外框 */
+        .profile-photo {
+            width: 150px; /* 圖片寬度 */
+            height: 150px; /* 圖片高度 */
+            border-radius: 50%; /* 變成圓形 */
+            object-fit: cover; /* 確保圖片不變形 */
+            border: 4px solid white; /* 白色外框 */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 陰影 */
+        }
+
+        /* 文字區塊樣式 */
+        .header-text { flex: 1; }
         header h1 { margin: 0; font-size: 2.5em; }
+        header p { margin: 5px 0; }
+
+        /* 當螢幕寬度大於 600px 時（電腦版），變為左右排列 */
+        @media (min-width: 600px) {
+            header { flex-direction: row; text-align: left; padding: 40px 60px; }
+            header h1 { font-size: 3em; }
+        }
+
         main { max-width: 800px; margin: 20px auto; padding: 20px; }
         section { background: white; padding: 25px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         h2 { color: #4a90e2; border-bottom: 2px solid #4a90e2; padding-bottom: 10px; margin-top: 0; }
@@ -21,9 +53,13 @@
 </head>
 <body>
     <header>
-        <h1>陳禹茹</h1>
-        <p>亞洲大學 語言治療學系 | 學號: AU114018083</p>
-        <p>📧 ruruchen56@gmail.com 
+        <img src="image_6.png" alt="陳禹茹的大頭照" class="profile-photo">
+        
+        <div class="header-text">
+            <h1>陳禹茹</h1>
+            <p>亞洲大學 語言治療學系 | 學號: AU114018083</p>
+            <p>📧 ruruchen56@gmail.com
+        </div>
     </header>
     <main>
         <section>
