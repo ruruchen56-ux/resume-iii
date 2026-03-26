@@ -1,103 +1,83 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>陳禹茹的個人履歷</title>
+    <title>陳禹茹 | 個人履歷</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: "Noto Sans TC", sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; line-height: 1.6; }
-        
-        /* 頁首樣式 - 加入 Flexbox 讓圖片和文字並排 */
-        header { 
-            background-color: #4a90e2; 
-            color: white; 
-            padding: 40px 20px; 
-            display: flex;
-            flex-direction: column; /* 手機版垂直排列 */
-            align-items: center; 
-            text-align: center;
-            gap: 20px;
+        /* 這裡可以快速修改主色調 */
+        :root {
+            --primary-color: #5c7c8a; /* 聽語系專業感的灰藍色 */
+            --accent-color: #d4a373;  /* 溫暖的輔助色 */
         }
-
-        /* 大頭照樣式 - 圓形、陰影、外框 */
-        .profile-photo {
-            width: 150px; /* 圖片寬度 */
-            height: 150px; /* 圖片高度 */
-            border-radius: 50%; /* 變成圓形 */
-            object-fit: cover; /* 確保圖片不變形 */
-            border: 4px solid white; /* 白色外框 */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 陰影 */
-        }
-
-        /* 文字區塊樣式 */
-        .header-text { flex: 1; }
-        header h1 { margin: 0; font-size: 2.5em; }
-        header p { margin: 5px 0; }
-
-        /* 當螢幕寬度大於 600px 時（電腦版），變為左右排列 */
-        @media (min-width: 600px) {
-            header { flex-direction: row; text-align: left; padding: 40px 60px; }
-            header h1 { font-size: 3em; }
-        }
-
-        main { max-width: 800px; margin: 20px auto; padding: 20px; }
-        section { background: white; padding: 25px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        h2 { color: #4a90e2; border-bottom: 2px solid #4a90e2; padding-bottom: 10px; margin-top: 0; }
-        ul { list-style: none; padding: 0; }
-        li { padding: 8px 0; border-bottom: 1px dotted #eee; }
-        li:last-child { border-bottom: none; }
-        button { background: #4a90e2; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: 0.3s; }
-        button:hover { background: #357abd; }
-        #moreInfo { display: none; margin-top: 15px; padding: 10px; background: #eef6ff; border-radius: 5px; }
+        body { font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif; }
+        .sidebar { background-color: #4a5568; }
     </style>
 </head>
-<body>
-    <header>
-        <img src="image_6.png" alt="陳禹茹的大頭照" class="profile-photo">
+<body class="bg-gray-100 py-10">
+    <div class="max-w-4xl mx-auto bg-white shadow-2xl flex flex-col md:flex-row min-h-[1000px]">
         
-        <div class="header-text">
-            <h1>陳禹茹</h1>
-            <p>亞洲大學 語言治療學系 | 學號: AU114018083</p>
-            <p>📧 ruruchen56@gmail.com
-        </div>
-    </header>
-    <main>
-        <section>
-            <h2>自我介紹</h2>
-            <p>您好，我是亞洲大學語聽系的陳禹茹。我具備良好的溝通能力與團隊合作精神，樂於挑戰新事物。</p>
-            <button onclick="toggleMoreInfo()">點我看更多細節</button>
-            <div id="moreInfo">
-                <p>我曾參與多場大型活動的工作經驗（如洲際棒球場、玉珍齋），負責觀眾引導、顧客服務與現場應變，具備細心與耐心的特質。</p>
+        <div class="w-full md:w-1/3 sidebar text-white p-8">
+            <div class="text-center mb-8">
+                <img src="image_6.png" alt="陳禹茹" class="w-40 h-40 rounded-full border-4 border-white mx-auto mb-4 object-cover">
+                <h1 class="text-2xl font-bold tracking-widest">陳禹茹</h1>
+                <p class="text-gray-300">Yu-Ru Chen</p>
             </div>
-        </section>
-        <section>
-            <h2>教育背景</h2>
-            <ul>
-                <li><strong>2023 - 現在：</strong> 亞洲大學 語言治療學系</li>
-                <li><strong>2019 - 2022：</strong> 彰化女中 普通科</li>
-            </ul>
-        </section>
-        <section>
-            <h2>工作與活動經驗</h2>
-            <ul>
-                <li><strong>洲際棒球場：</strong> 觀眾引導、座位指引、秩序維護</li>
-                <li><strong>玉珍齋：</strong> 顧客服務、裁票、活動協助</li>
-            </ul>
-        </section>
-        <section>
-            <h2>核心技能</h2>
-            <ul>
-                <li>✅ 語言能力：中文（母語）、英文（中等）</li>
-                <li>✅ 專業技能：HTML/CSS 基礎、團隊組織</li>
-                <li>✅ 個人特質：溝通協調、危機處理</li>
-            </ul>
-        </section>
-    </main>
-    <script>
-        function toggleMoreInfo() {
-            const info = document.getElementById('moreInfo');
-            info.style.display = (info.style.display === 'block') ? 'none' : 'block';
-        }
-    </script>
+
+            <div class="space-y-6">
+                <section>
+                    <h3 class="text-orange-300 font-bold border-b border-gray-500 pb-2 mb-3">聯絡資訊</h3>
+                    <p class="text-sm">📧 ruruchen56@gmail.com</p>
+                    <p class="text-sm">🆔 AU114018083</p>
+                    <p class="text-sm">📍 亞洲大學 聽語系</p>
+                </section>
+
+                <section>
+                    <h3 class="text-orange-300 font-bold border-b border-gray-500 pb-2 mb-3">專業技能</h3>
+                    <div class="space-y-2 text-sm">
+                        <p>聽力評估 90%</p>
+                        <div class="w-full bg-gray-600 h-1.5 rounded-full"><div class="bg-orange-400 h-1.5 w-[90%]"></div></div>
+                        <p>語言治療 85%</p>
+                        <div class="w-full bg-gray-600 h-1.5 rounded-full"><div class="bg-orange-400 h-1.5 w-[85%]"></div></div>
+                        <p>溝通輔具運用 80%</p>
+                        <div class="w-full bg-gray-600 h-1.5 rounded-full"><div class="bg-orange-400 h-1.5 w-[80%]"></div></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="w-full md:w-2/3 p-10">
+            <header class="mb-10 border-b-2 border-gray-100 pb-6">
+                <h2 class="text-3xl font-bold text-gray-700">聽力暨語言治療學系</h2>
+                <p class="text-lg text-gray-500 italic">Department of Audiology and Speech-Language Pathology</p>
+            </header>
+
+            <section class="mb-10">
+                <h3 class="bg-orange-100 text-orange-700 px-4 py-1 rounded-full inline-block font-bold mb-4">教育背景</h3>
+                <div class="ml-4 border-l-2 border-orange-200 pl-6 py-2">
+                    <p class="font-bold text-gray-700">亞洲大學</p>
+                    <p class="text-gray-500 text-sm">2022 - 至今</p>
+                    <p class="mt-2 text-gray-600 text-sm">主修聽力暨語言治療，致力於提升溝通障礙者的生活品質。</p>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <h3 class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full inline-block font-bold mb-4">自我介紹</h3>
+                <p class="text-gray-600 leading-relaxed ml-4">
+                    妳好，我是禹茹。目前就讀於亞洲大學聽語系。我對協助他人建立溝通橋樑充滿熱情，希望能透過專業知識，為有需求的人提供最溫暖的專業協助。
+                </p>
+            </section>
+
+            <section>
+                <h3 class="bg-gray-100 text-gray-700 px-4 py-1 rounded-full inline-block font-bold mb-4">實習/專案經驗</h3>
+                <div class="ml-4 text-gray-400 italic">內容編輯中...</div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="text-center text-gray-400 text-xs mt-10">
+        © 2026 Yu-Ru Chen. Designed with AI.
+    </footer>
 </body>
 </html>
