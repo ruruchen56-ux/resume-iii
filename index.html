@@ -28,21 +28,31 @@
             color: white;
             transition: opacity 0.8s ease;
         }
+
+        /* 讓按鈕有一點呼吸燈效果，更明顯 */
+        @keyframes pulse-custom {
+            0% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(251, 191, 36, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }
+        }
+        #start-btn {
+            animation: pulse-custom 2s infinite;
+        }
     </style>
 </head>
 <body class="bg-gray-50 py-10">
 
     <div id="music-overlay">
-        <div class="text-center">
-            <h2 class="text-2xl font-bold mb-6 tracking-widest">歡迎瀏覽 陳禹茹 的個人履歷</h2>
-            <button id="start-btn" class="bg-amber-400 hover:bg-amber-500 text-slate-800 font-bold py-4 px-8 rounded-full shadow-2xl transition duration-300 transform hover:scale-105 flex items-center mx-auto">
-                <span class="mr-2">🎵</span> 開啟履歷並播放音樂
+        <div class="text-center px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 tracking-widest">歡迎瀏覽 陳禹茹 的個人履歷</h2>
+            <button id="start-btn" class="bg-amber-400 hover:bg-amber-500 text-slate-800 font-bold py-4 px-10 rounded-full shadow-2xl transition duration-300 transform hover:scale-105 flex items-center mx-auto text-lg">
+                <span class="mr-2">🎵</span> 點擊開啟並播放音樂
             </button>
-            <p class="mt-4 text-slate-400 text-sm">請確保喇叭已開啟</p>
+            <p class="mt-6 text-slate-400 text-sm italic">音樂檔案加載中，請確保音量已開啟</p>
         </div>
     </div>
 
-    <audio id="bgm" src="bgm.mp3" loop></audio>
+    <audio id="bgm" src="./bgm.mp3" loop preload="auto"></audio>
 
     <div class="max-w-4xl mx-auto bg-white shadow-xl flex flex-col md:flex-row min-h-[900px] rounded-lg overflow-hidden">
         
@@ -50,7 +60,7 @@
             <div class="text-center mb-10">
                 <img src="image_6.png" alt="陳禹茹" class="w-44 h-44 rounded-full border-4 border-slate-500 mx-auto mb-6 object-cover shadow-lg">
                 <h1 class="text-3xl font-bold tracking-widest mb-2">陳禹茹</h1>
-                <p class="text-slate-400 uppercase text-sm tracking-tighter">Yu-Ru Chen</p>
+                <p class="text-slate-400 uppercase text-sm tracking-widest">Yu-Ru Chen</p>
             </div>
 
             <div class="space-y-8">
@@ -148,19 +158,21 @@
         document.getElementById('start-btn').addEventListener('click', function() {
             var audio = document.getElementById('bgm');
             
-            // 嘗試播放音樂
+            // 強制設定音量並播放
+            audio.volume = 0.6; 
             audio.play().then(() => {
-                console.log("音樂開始播放");
+                console.log("音樂播放成功！");
             }).catch(e => {
-                console.log("播放被阻攔:", e);
+                console.error("音樂播放失敗，請檢查檔案是否存在：", e);
+                alert("音檔讀取失敗，請確認 bgm.mp3 檔案已正確上傳至 GitHub");
             });
 
-            // 隱藏遮罩層
+            // 執行動畫隱藏遮罩
             var overlay = document.getElementById('music-overlay');
             overlay.style.opacity = '0';
             setTimeout(function() {
                 overlay.style.display = 'none';
-            }, 800); // 等待淡出動畫結束
+            }, 800);
         });
     </script>
 </body>
